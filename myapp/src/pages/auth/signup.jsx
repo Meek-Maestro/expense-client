@@ -59,7 +59,7 @@ const Signup = () => {
           )}
           {/* Firstname field */}
           <div className="grid w-full">
-            <label className="text-sm" htmlFor="">
+            <label className="text-sm font-semibold mb-3" htmlFor="">
               First Name
             </label>
             <input
@@ -75,7 +75,7 @@ const Signup = () => {
           </div>
           {/* Lastname field */}
           <div className="grid w-full">
-            <label className="text-sm" htmlFor="">
+            <label className="text-sm font-semibold mb-3" htmlFor="">
               Last Name
             </label>
             <input
@@ -91,7 +91,7 @@ const Signup = () => {
           </div>
           {/* Email field */}
           <div className="grid w-full">
-            <label className="text-sm" htmlFor="">
+            <label className="text-sm font-semibold mb-3" htmlFor="">
               Email
             </label>
             <input
@@ -107,7 +107,7 @@ const Signup = () => {
           </div>
           {/* Password Field */}
           <div className="grid w-full">
-            <label className="text-sm" htmlFor="">
+            <label className="text-sm font-semibold mb-3" htmlFor="">
               Password
             </label>
             <input

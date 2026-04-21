@@ -43,7 +43,7 @@ const Login = () => {
 
           {/* Email field */}
           <div className="grid w-full">
-            <label className="text-sm" htmlFor="">
+            <label className="text-sm font-semibold mb-3" htmlFor="">
               Email
             </label>
             <input
@@ -59,7 +59,7 @@ const Login = () => {
           </div>
           {/* Password Field */}
           <div className="grid w-full">
-            <label className="text-sm" htmlFor="">
+            <label className="text-sm font-semibold mb-3" htmlFor="">
               Password
             </label>
             <input

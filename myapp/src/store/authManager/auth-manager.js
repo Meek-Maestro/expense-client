@@ -17,16 +17,16 @@ class AuthManager {
     runInAction(() => {
       this.status = "loading";
     });
-    const { user } = await authRepository.getAuthenticatedProfile();
-    if (user) {
+    const payload = await authRepository.getAuthenticatedProfile();
+    if (payload) {
       runInAction(() => {
         this.status = "authenticated";
-        this.profile = user;
+        this.profile = payload?.user;
       });
     } else {
       runInAction(() => {
         this.status = "loaded";
-        this.setAuthenticatedProfile();
+        this.loadAuthenticatedProfile();
       });
     }
   }
@@ -42,7 +42,13 @@ class AuthManager {
     }
   }
 
-  logout() {}
+  logout() {
+    authRepository.clear()
+
+    runInAction(()=>{
+      this.status = "initial"
+    })
+  }
 }
 
 export const authManager = new AuthManager();

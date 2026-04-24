@@ -8,6 +8,7 @@ const main = observer(() => {
     authManager.init();
     console.log(authManager.status);
   }, []);
+  // authManager.logout();
   return (
     <>
       <App />
@@ -16,14 +17,11 @@ const main = observer(() => {
 });
 
 const App = observer(() => {
-  if (authManager.status === "loading") {
-    return <div>Loading</div>;
-  }
   if (authManager.status === "loaded") {
-    return <div>Not authenticated</div>;
+    return <AuthRoute />;
   }
   if (authManager.status === "authenticated") {
-    return <div>Authenticated</div>;
+    return <div>Authenticated </div>;
   }
   return <AuthRoute />;
 });

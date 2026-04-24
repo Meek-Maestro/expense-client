@@ -12,16 +12,16 @@ class AuthRepository {
   }
 
   async setAuthenticatedUser(token) {
+    if (!token) throw Error("Cannot authenticate user");
     localStorage.setItem("token", token);
     if (!this.user) {
-      const resp = await api.get("/profile").then((res) => {
-        if (res.data) {
-          localStorage.setItem("user", JSON.stringify(res.data));
-          this.user = res.data;
-        }
-      });
-      console.log(resp);
-      return { user: resp.data };
+      const resp = await api.get("/profile");
+      if (resp.data.user) {
+        localStorage.setItem("user", JSON.stringify(resp.data.user));
+        this.user = resp.data.user;
+        return { user: this.user };
+      }
+      return undefined;
     }
     return null;
   }
